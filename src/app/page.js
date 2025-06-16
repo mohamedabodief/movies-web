@@ -3,14 +3,21 @@ import styles from './page.module.css';
 import { Button, Form } from 'react-bootstrap';
 import Card from '@/components/cardHomePage';
 import Search from '@/components/search/index1';
+import Pagination from '@/components/header/pagination/index2';
 
-export default async function Home() {
+export default async function Home({searchParams}) {
   // Fetching the now playing movies from TMDB API
+    const page = parseInt(searchParams?.page || '1');
+    const limit = 12;
+
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=76fb730da20c26bcd7d05575d7dcf0c6&language=en-US`
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=76fb730da20c26bcd7d05575d7dcf0c6&language=en-US&page=${page}`,
+    { cache: 'no-store' }
   );
+
   const data = await res.json();
-  const allMovies = data.results;
+  const allMovies = data.results.slice(0, limit);
+  const totalPages = data.total_pages;
 
   return (
     <div className="m-5">
@@ -37,6 +44,7 @@ export default async function Home() {
 ))}
         </div>
       </section>
+     <Pagination currentPage={page} totalPages={totalPages} />
     </div>
   );
 }
