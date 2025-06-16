@@ -9,7 +9,7 @@ export default function Header() {
         style={{ backgroundColor: '#FFE353' }}
       >
         <div className="container-fluid fw-bold">
-          <a className="navbar-brand " href="#">
+          <a className="navbar-brand " href="/">
             Movie App
           </a>
           <button

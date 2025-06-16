@@ -4,8 +4,10 @@ import Link from 'next/link';
 import RecommendationCard from '@/components/RecommendationCard';
 import FavoriteToggle from '@/components/FavoriteToggle';
 
-export default async function MovieDetails({ params }) {
+export default async function MovieDetails(props) {
+  const params = await props.params;
   const { id } = params;
+
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '76fb730da20c26bcd7d05575d7dcf0c6';
 
   const shuffleArray = (array) => {

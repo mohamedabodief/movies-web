@@ -22,7 +22,7 @@ export default  function Card({movie}) {
   else if (vote >= 40) strokeColor = 'orange';
 
   return (
-    <Link href={`/movie_details/${movie.id}`} key={movie.id}>
+    <Link href={`/movie_details/${movie.id}`} key={movie.id} className="p-0">
     <div
       className="col mb-2 px-3"
       style={{

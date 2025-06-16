@@ -42,7 +42,7 @@ function Page() {
   }, [input]);
 
   return (
-    <div className="container mt-5">
+    <div className="container py-5">
       <Form className="input-group w-100 mb-4">
         <Form.Control
           type="text"
@@ -55,15 +55,15 @@ function Page() {
           Search
         </Button>
       </Form>
-      {loading && <div className="spinner-border" role="status">
+      {loading && <div className=" mt-5 fw-bold fs-3 text-center p-5"> <div className="spinner-border text-warning" role="status">
         <span className="visually-hidden">Loading...</span>
-      </div>}
+      </div></div>}
 
       {!loading && result.length === 0 && input && (
-        <p className="text-danger mt-3">No results found.</p>
+        <p className="text-danger mt-5 fw-bold fs-3 text-center p-5">No results found</p>
       )}
 
-      <div className="row">
+      <div className="row h-100 row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 py-3">
         {result.map((item) => (
           <div key={item.id} className="col-md-3">
             <Card movie={item} />
