@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import { Button, Form } from 'react-bootstrap';
-import card from './card/page';
+import card from '@/components/cardHomePage';
 
 export default async function Home() {
   // Fetching the now playing movies from TMDB API
