@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React from 'react';
 
 export default  function Card({movie}) {
@@ -21,6 +22,7 @@ export default  function Card({movie}) {
   else if (vote >= 40) strokeColor = 'orange';
 
   return (
+    <Link href={`/movie_details/${movie.id}`} key={movie.id}>
     <div
       className="col mb-2 px-3"
       style={{
@@ -118,5 +120,6 @@ export default  function Card({movie}) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
