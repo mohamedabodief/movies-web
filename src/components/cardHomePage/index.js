@@ -1,7 +1,5 @@
-// src/components/cardHomePage/index.js
-import Link from 'next/link'; // Correct import for Next.js Link
-
-export default function card(movie) { // Changed to a regular function as it's not directly fetching data here
+import Link from 'next/link';
+export default function card(movie) {
   const formattedDate = new Date(movie.release_date).toLocaleDateString(
     'en-US',
     {
@@ -21,7 +19,7 @@ export default function card(movie) { // Changed to a regular function as it's n
   else if (vote >= 40) strokeColor = 'orange';
 
   return (
-    // Wrap the entire card in the Next.js Link component
+    // Wrap the entire card Link
     <Link href={`/movie_details/${movie.id}`} key={movie.id}>
       <div
         className="col mb-2 px-3"

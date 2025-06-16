@@ -1,4 +1,3 @@
-// src/components/RecommendationCard/index.js
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
@@ -25,9 +24,9 @@ export default function RecommendationCard({ movie }) {
   return (
     <Link href={`/movie_details/${movie.id}`} className="text-decoration-none text-dark">
       <div
-        className="col mb-4 px-2" // Adjust spacing for smaller cards
+        className="col mb-4 px-2"
         style={{
-          height: '350px', // Adjusted height for recommendation cards
+          height: '350px',
         }}
         key={movie.id}
       >
@@ -45,8 +44,8 @@ export default function RecommendationCard({ movie }) {
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 className="card-img-top"
                 alt={movie.title}
-                width={150} // Adjust width for smaller cards
-                height={225} // Adjust height for smaller cards
+                width={150}
+                height={225}
                 style={{
                   objectFit: 'cover',
                   border: 'none',
@@ -67,7 +66,7 @@ export default function RecommendationCard({ movie }) {
             <div
               className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
               style={{
-                bottom: '8px', // Position inside the image, adjust as needed
+                bottom: '8px',
                 left: '8px',
                 width: '45px',
                 height: '45px',
@@ -119,17 +118,6 @@ export default function RecommendationCard({ movie }) {
               style={{ fontSize: '0.9rem', color: '#666' }}
             >
               <span>{formattedDate}</span>
-              {/* Heart icon, if desired for recommendations. Design doesn't show it */}
-              {/* <div
-                style={{
-                  color: '#f0c420',
-                  fontSize: '20px',
-                  margin: '0px',
-                  padding: '0px',
-                }}
-              >
-                <i className="bi bi-heart-fill"></i>
-              </div> */}
             </div>
           </div>
         </div>
