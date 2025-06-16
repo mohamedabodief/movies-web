@@ -1,7 +1,9 @@
-// src/components/cardHomePage/index.js
-import Link from 'next/link'; // Correct import for Next.js Link
+// src/components/RecommendationCard/index.js
+import Link from 'next/link';
+import Image from 'next/image';
+import React from 'react';
 
-export default function card(movie) { // Changed to a regular function as it's not directly fetching data here
+export default function RecommendationCard({ movie }) {
   const formattedDate = new Date(movie.release_date).toLocaleDateString(
     'en-US',
     {
@@ -21,12 +23,11 @@ export default function card(movie) { // Changed to a regular function as it's n
   else if (vote >= 40) strokeColor = 'orange';
 
   return (
-    // Wrap the entire card in the Next.js Link component
-    <Link href={`/movie_details/${movie.id}`} key={movie.id}>
+    <Link href={`/movie_details/${movie.id}`} className="text-decoration-none text-dark">
       <div
-        className="col mb-2 px-3"
+        className="col mb-4 px-2" // Adjust spacing for smaller cards
         style={{
-          height: '400px',
+          height: '350px', // Adjusted height for recommendation cards
         }}
         key={movie.id}
       >
@@ -39,23 +40,35 @@ export default function card(movie) { // Changed to a regular function as it's n
           }}
         >
           <div className="position-relative">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              className="card-img-top"
-              alt={movie.title}
-              style={{
-                height: '300px',
-                objectFit: 'fill',
-                border: 'none',
-                borderRadius: '8px',
-              }}
-            />
+            {movie.poster_path ? (
+              <Image
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                className="card-img-top"
+                alt={movie.title}
+                width={150} // Adjust width for smaller cards
+                height={225} // Adjust height for smaller cards
+                style={{
+                  objectFit: 'cover',
+                  border: 'none',
+                  borderRadius: '8px',
+                }}
+              />
+            ) : (
+              <div
+                className="rounded-2 d-flex align-items-center justify-content-center bg-secondary text-white"
+                style={{ width: 150, height: 225 }}
+              >
+                No Image
+              </div>
+            )}
 
+
+            {/* Vote Circle Overlay */}
             <div
               className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
               style={{
-                bottom: '-20px',
-                left: '10px',
+                bottom: '8px', // Position inside the image, adjust as needed
+                left: '8px',
                 width: '45px',
                 height: '45px',
                 backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -106,7 +119,8 @@ export default function card(movie) { // Changed to a regular function as it's n
               style={{ fontSize: '0.9rem', color: '#666' }}
             >
               <span>{formattedDate}</span>
-              <div
+              {/* Heart icon, if desired for recommendations. Design doesn't show it */}
+              {/* <div
                 style={{
                   color: '#f0c420',
                   fontSize: '20px',
@@ -115,7 +129,7 @@ export default function card(movie) { // Changed to a regular function as it's n
                 }}
               >
                 <i className="bi bi-heart-fill"></i>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
