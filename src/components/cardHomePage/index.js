@@ -1,6 +1,7 @@
+'use client'
 import React from 'react';
 
-export default async function card(movie) {
+export default  function Card({movie}) {
   const formattedDate = new Date(movie.release_date).toLocaleDateString(
     'en-US',
     {
