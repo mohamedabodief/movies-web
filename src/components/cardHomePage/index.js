@@ -1,7 +1,7 @@
-// components/Card.js
 'use client';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image'; // ✅ استيراد Image من next/image
 import FavoriteToggle from '../FavoriteToggle'; // تأكد من المسار الصحيح
 
 export default function Card({ movie }) {
@@ -32,24 +32,26 @@ export default function Card({ movie }) {
           }}
         >
           <div className="position-relative">
-            {/* صورة الفيلم */}
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              className="card-img-top"
+            {/* ✅ صورة الفيلم باستخدام <Image /> */}
+            <Image
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : 'https://placehold.co/500x750/cccccc/333333?text=No+Image'
+              }
               alt={movie.title}
+              width={500}
+              height={750}
+              className="card-img-top"
               style={{
                 height: '300px',
                 objectFit: 'fill',
-                border: 'none',
                 borderRadius: '8px',
               }}
-              onError={(e) => {
-                e.currentTarget.src =
-                  'https://placehold.co/500x750/cccccc/333333?text=No+Image';
-              }}
+              unoptimized // ⬅️ ضرورية لو مصدر الصورة مش مضاف في next.config.js
             />
 
-            {/* الدائرة الخاصة بتقييم الفيلم */}
+            {/* تقييم الفيلم */}
             <div
               className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
               style={{
