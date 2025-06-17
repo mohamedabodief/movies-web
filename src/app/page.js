@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import Card from '@/components/cardHomePage';
 import Search from '@/components/search/index1';
 import Pagination from '@/components/header/pagination/index2';
+// import { FavoritesProvider } from '@/components/FavoritesContext';
 
 export default async function Home({searchParams}) {
   // Fetching the now playing movies from TMDB API
@@ -20,6 +21,7 @@ export default async function Home({searchParams}) {
   const totalPages = data.total_pages;
 
   return (
+    <>
     <div className="m-5">
       <section
         className="search-section p-5"
@@ -46,5 +48,6 @@ export default async function Home({searchParams}) {
       </section>
      <Pagination currentPage={page} totalPages={totalPages} />
     </div>
+    </>
   );
 }
