@@ -6,15 +6,11 @@ import React from 'react';
 
 
 export default function NotFound() {
-  //   const goHome = () => {
-  //     redirect("/");
-  //   };
+
   return (
     <div
-      className=""
       style={{ height: "auto" }}
     >
-        <h1 className="fw-bold px-5 py-5">Watch list</h1>
       <div className="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
           <Image
             src="/🦆 icon _heart slash_.png"

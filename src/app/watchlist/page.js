@@ -77,14 +77,14 @@ export default function WatchlistPage() {
     }
 
     return (
-        <div className="container my-5">
-            <h1 className="text-center mb-4">My Watchlist</h1>
+        <div className="m-5">
+        <h1 className="fw-bold">Watch list</h1>
             {favoriteMovieIds.length === 0 ? (
                 <div className="text-center py-5">
                 <NotFound />
                 </div>
             ) : (
-                <div className="row row-cols-1 row-cols-md-2 g-4 py-3">
+                <div className="row row-cols-1 row-cols-md-2 g-4 py-3 m-5">
                     {favoriteMovies.map((movie) => (
                         <div className="col d-flex" key={movie.id}> 
                             <WatchlistCard movie={movie} />
