@@ -33,7 +33,7 @@ export default function RecommendationCard({ movie }) {
         <div
           className="card bg-transparent shadow-none"
           style={{
-            height: '100%',
+            height: '400px%',
             border: 'none',
             boxShadow: 'none',
           }}
@@ -45,7 +45,7 @@ export default function RecommendationCard({ movie }) {
                 className="card-img-top"
                 alt={movie.title}
                 width={150}
-                height={225}
+                height={300}
                 style={{
                   objectFit: 'cover',
                   border: 'none',

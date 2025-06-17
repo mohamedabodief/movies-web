@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { useFavorites } from '@/components/FavoritesContext'; // Import useFavorites hook
+import { useFavorites } from '@/components/FavoritesContext'; 
 
 export default function Header() {
     // Get the array of favorite movie IDs from the context
@@ -14,7 +14,7 @@ export default function Header() {
         <>
             <nav
                 className="navbar navbar-expand-lg px-3"
-                style={{ backgroundColor: '#FFE353' }} // Original background color
+                style={{ backgroundColor: '#FFE353' }} 
             >
                 <div className="container-fluid fw-bold">
                     {/* Movie App Brand Link */}
@@ -65,8 +65,8 @@ export default function Header() {
                                 {/* Use Next.js Link component for client-side navigation */}
                                 <Link
                                     href="/watchlist"
-                                    className="nav-link p-0 d-flex align-items-center position-relative" // Added position-relative for badge positioning
-                                    style={{ color: 'inherit' }} // Inherit text color from parent to avoid blue link color
+                                    className="nav-link p-0 d-flex align-items-center position-relative"
+                                    style={{ color: 'inherit' }}
                                 >
                                     <i className="fa-solid fa-heart text-dark me-1 fa-lg fs-3 me-2"></i> {/* Original heart icon */}
                                     <span>watchlist</span>
@@ -75,12 +75,12 @@ export default function Header() {
                                         <span
                                             className="badge bg-light text-dark position-absolute"
                                             style={{
-                                                fontSize: '0.70em', // Slightly smaller for better fit
+                                                fontSize: '0.70em', 
                                                 padding: '0.3em 0.5em',
-                                                top: '-5px', // Adjust position to float above
-                                                right: '-15px', // Adjust position to float beside
-                                                transform: 'translateX(50%)', // Shift right to center on link edge
-                                                border: '2px solid #FFE353', // Border color matching header background
+                                                top: '-5px', 
+                                                right: '-15px', 
+                                                transform: 'translateX(50%)',
+                                                border: '2px solid #FFE353', 
                                             }}
                                             aria-label={`${watchlistCount} movies in watchlist`}
                                         >

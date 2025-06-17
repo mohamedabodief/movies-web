@@ -1,10 +1,12 @@
 import React from 'react';
 import MovieDetailsClient from '@/components/MovieDetailsClient'; // Import the new client component
 
-// This is a Server Component
-export default async function MovieDetailsPage({ params }) {
-    const { id } = params;
-    const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '76fb730da20c26bcd7d05575d7dcf0c6';
+
+export default async function MovieDetails(props) {
+  const params = await props.params;
+  const { id } = params;
+
+  const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY || '76fb730da20c26bcd7d05575d7dcf0c6';
 
     const movieRes = await fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,
