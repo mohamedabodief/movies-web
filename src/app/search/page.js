@@ -14,7 +14,7 @@ function Page() {
   const [totalPages, setTotalPages] = useState(1);
 
   //pagenation
-  const limit = 12;
+  const limit = 10;
   const page = parseInt(searchParams.get('page') || '1');
   //pagenation
   useEffect(() => {
@@ -72,7 +72,7 @@ return (
         Search
       </Button>
     </Form>
-    {input && <p className='text-danger mb-3 fs-5'>the result of {input}</p>}
+    {/* {input && <p className='text-danger mb-3 fs-5 fw-bold text-center'>the result of * {input} *</p>} */}
 
     {loading && <div className=" mt-5 fw-bold fs-3 text-center p-5"> <div className="spinner-border text-warning" role="status">
       <span className="visually-hidden">Loading...</span>

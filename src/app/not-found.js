@@ -1,18 +1,12 @@
-// "use client";
+"use client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-export const metadata = {
-  title: "Not Found Page",
-  description: "Rendering Not Found Page",
-};
-
 
 export default function NotFound() {
-//   const goHome = () => {
-//     redirect("/");
-//   };
+
+  
   return (
     <div className="d-flex align-items-center justify-content-center" style={{height: "88vh" }}>
       <div className="text-center">
@@ -22,14 +16,15 @@ export default function NotFound() {
           <span className="text-danger">Opps!</span> Page not found.
         </p>
         <p className="lead">The page you’re looking for doesn’t exist.</p>
-        <Link className="btn btn-primary" href="/" >
-          Go Home
-        </Link>
-        {/* <button className="btn btn-primary" onClick={goHome}>
-          Go Home
-        </button> */}
+        <button
+          className="btn w-100 mx-auto d-block"
+          style={{ backgroundColor: '#f5c518', color: '#000' }}
+          onClick={() => redirect('/')}
+        >
+          Back to home
+        </button>
+
       </div>
     </div>
   );
 }
-// programaticlly
