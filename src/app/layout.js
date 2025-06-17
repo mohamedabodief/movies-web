@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "./globals.css";
 import Header from "@/components/header";
+import { FavoritesProvider } from "@/components/FavoritesContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +24,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+          <FavoritesProvider>
         <Header />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
 
         <div>
-        {children}
+            {children}
         </div>
+            </FavoritesProvider>
       </body>
     </html>
   );
